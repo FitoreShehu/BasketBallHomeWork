@@ -1,3 +1,4 @@
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import stepDefs.Methods.WaitMethods;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -142,6 +145,47 @@ public class MyStepdefs {
         System.out.println("actualerrormesage = " + webelement.getText());
         assertEquals(expectedErrorMessage, actualErrorMessage);
         assertTrue(webelement.isDisplayed(),"The element is not displayed");
+    }
+
+    @And("User forget to write the lastname")
+    public void userForgetToWriteTheLastname() {
+
+    }
+
+    @When("User does not enter the confirm email")
+    public void userDoesNotEnterTheConfirmEmail() {
+
+    }
+
+    @And("User does not write the retype password")
+    public void userDoesNotWriteTheRetypePassword() {
+
+    }
+
+    @And("User does not accepts that they are an adult")
+    public void userDoesNotAcceptsThatTheyAreAnAdult() {
+
+    }
+
+    @And("User does not accepts the checkbox for agreeing to the Basketball England Code of Ethics and Conduct")
+    public void userDoesNotAcceptsTheCheckboxForAgreeingToTheBasketballEnglandCodeOfEthicsAndConduct() {
+
+    }
+
+    @Then("User get all the error message displayed")
+    public void userGetAllTheErrorMessageDisplayed(List<String> expectedErrorMessage) {
+        List<String>actualErrorMessage = new ArrayList<>();
+        List<WebElement> actualElements = driver.findElements(By.xpath("//span[@class='warning field-validation-error']"));
+
+        for (WebElement actualElement : actualElements) {
+            String text = actualElement.getText();
+            if (!text.isEmpty()) {
+                actualErrorMessage.add(text);
+            }
+        }
+        System.out.println("expectedErrorMessage = " + expectedErrorMessage);
+        System.out.println("actualErrorMessage = " + actualErrorMessage);
+        assertEquals(expectedErrorMessage,actualErrorMessage);
     }
 //    private  void click( By by){
 //        (new WebDriverWait(driver, Duration.ofSeconds(10))).until(ExpectedConditions.elementToBeClickable(by));
