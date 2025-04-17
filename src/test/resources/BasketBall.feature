@@ -6,8 +6,8 @@ Feature: Create an account on the basketball page.
     When User writes the date of birth "20/09/1999"
     And User writes the name "Linna "
     And User writes the lastname "Persson"
-    * User writes the email "Linnaaa.persson@test.com"
-    * User writes the confirm email  "Linnaaa.persson@test.com"
+    * User writes the email "Linnaaa.perssonn@test.com"
+    * User writes the confirm email  "Linnaaa.perssonn@test.com"
     * User write the password "Testpassword123."
     And User write the retype password "Testpassword123."
     Then User choose the role Fan in basketball
